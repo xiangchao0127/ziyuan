@@ -1,0 +1,10 @@
+free -m   uname -a top du -sh .  df -m
+sudo ufw --help 防火墙
+netstat -an | grep 3306 查看端口占用
+service --status-all 查看已安装的服务
+ps -aux | grep mysql 查看服务
+service mysql start restart 开启服务
+service mysql stop 停止服务
+locate之前要updatedb用root权限
+mysql 连接不上  grant all privileges on *.* to ‘root’@’%’ identified by ‘上边的密码’;flush privileges; 拿root用密码登录 重启
+

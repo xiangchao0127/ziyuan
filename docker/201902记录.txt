@@ -1,0 +1,28 @@
+﻿rabbit mq 启动方式  双击rabbitmq server     sbin下 rabbitmq-plugins.bat enable rabbitmq_management   localhost:15672   guest guest
+http://192.168.0.199:5790/swagger-ui.html
+192.168.0.6:8080  知识说前段页面
+github git add .  git commit -m "update" git push /d/javaWorkStation/resource  git rm --cached -r . 清除commit git缓存
+python manage.py runserver 0.0.0.0:8000 django运行命令
+admin 123321 browser
+python -m SimpleHTTPServer 8000 python2.0  搭建http服务
+python -m http.server 8000  python3.0 
+http://192.168.3.11:3000  知识说测试前段
+from tensorflow.python.ops import control_flow_ops tensorflow运行报错
+spring boot  @one2one 实体类不要id  设置相互设置对象
+根据端口查看进程id    netstat -nao | findstr "端口号"
+http://192.168.0.6:10000/bingSpider/?word=%E4%BD%A0%E5%A5%BD&scrapyRecordId=123
+nginx运行 双击nginx.exe
+netstat -nao | findstr "端口"
+tasklist|findstr 2472;                windows强制杀死进程
+taskkill /pid 2472 -t -f;
+taskkill /fi "imagename eq nginx.exe" /f   批量杀死nginx进程
+
+ubuntu 远程连接 1210174493    6035
+0.6 TS130\Administrator  ts130@adminU
+0.10 11!!aa  gofuckyourself
+http://192.168.3.78:5780/config/gateway-dev.yml
+tail -f 动态看文件
+
+
+
+

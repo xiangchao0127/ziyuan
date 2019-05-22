@@ -1,0 +1,106 @@
+员工工号  X00967
+QQ 3003363056
+http://192.168.2.251:8101/Pub/GetSpecialtyList  这个是领域层级结构 
+http://ot.lan-bridge.com.cn:8103/LanguageType/kinds   这是语种 
+到时候就是按照语种+领域 + 句子 + 匹配度 为搜索条件 
+http://192.168.0.10:60010/master-status hbase
+http://192.168.0.10:9200/ es
+http://192.168.0.10:50070/dfshealth.html#tab-overview hadoop
+gofuckyourself 虚拟机 用户名   11!!aa
+192.168.0.6 虚拟机ip
+TS130\Administrator  用户名
+ts130@adminU  密码
+16693  kibana
+23189  5602  0.6
+23394  5601  0.10
+16056  5603  2.247 
+
+svn xiangchao  XiangChao123
+
+localhost     192.168.3.78
+
+https://ser.yu.lan-bridge.com/svn/信息技术部员工/xiangchao  svn项目地址
+https://ser.yu.lan-bridge.com/!/#%E5%90%84%E9%83%A8%E9%97%A8%E5%91%A8%E4%BE%8B%E4%BC%9A/view/head/%E5%A4%9A%E5%AA%92%E4%BD%93%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%84/2018%E5%B0%8F%E7%BB%84%E5%91%A8%E4%BE%8B%E4%BC%9A%E5%91%A8%E6%8A%A5/20180913   周报地址
+https://ser.yu.lan-bridge.com/!/#Spider  爬虫项目提交地址
+svn 用户名 xiangchao 密码 xiangchao111
+
+kibana 配置  配饰host.name 才能连上
+mysql 乱码问题  修改my.ini utf8
+ALTER TABLE `domain` ADD unique(`specialty_id`); 添加唯一建
+SHOW FULL COLUMNS FROM  表 查看所有列信息
+show variables like 'character%'; 查看编码mysql
+show status like 'Threads%';  mysql 查看连接数
+
+
+f = open("out.html","w",encoding='utf-8')  文件乱码问题
+    for line in open("keywords"):
+        start_urls.append(base_URL + line.strip().decode('gbk').encode('utf-8') + offset_start + end_URL)
+
+python 禁用str做变量
+svn pycharm环境问题  装svn选择命令行 重启计算机  新建项目  配置环境exe
+累了就休息哈，别想多了 so easy   专心，习惯，享受  过了就好了  
+ 在Python中，None、空列表[]、空字典{}、空元组()、0等一系列代表空和无的对象会被转换成False。除此之外的其它对象都会被转化成True。
+
+maven 查看依赖树  mvn dependency:tree -Dverbose > tree.txt
+
+解决多线程爬取数据      
+scrapy runspider spider_name.py
+POST en-us/data/_delete_by_query
+{
+  "query": {
+    "term": {
+      "sub_domain": 77              es批量删除
+    }
+  }
+}
+python u 开头 表示unicode
+git merge   新建分支 修改提交  拉取代码  拉取到当前分支   提交
+  <repositories>
+        <repository>
+            <id>alimaven</id>
+            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+        </repository>
+    </repositories>
+elasticsearch设置最大返回数量 
+PUT en-us/_settings 
+  
+{
+  "index":{
+    "max_result_window":10000
+  }
+}
+netstat -nao | findstr 8080 查看windows进程端口
+taskkill /pid 9612 -t -f 杀死进程
+
+https://blog.csdn.net/qq_35246620/article/details/80522720   IDEA激活方法
+https://blog.csdn.net/w1070216393/article/details/79778415   editplus激活方法
+
+https://www.cnblogs.com/zongfa/p/7808807.html  redis 操作
+redis-cli.exe -h 192.168.0.10 -p 6379 redis远程连接
+数据对象：xxxDO，xxx即为数据表名。 
+2） 数据传输对象：xxxDTO，xxx为业务领域相关的名称。
+ 3） 展示对象：xxxVO，xxx一般为网页名称。 
+4） POJO是DO/DTO/BO/VO的统称，禁止命名成xxxPOJO。
+
+商会标准svn项目后端地址
+内网地址 https://USER1341.vdesktop.huawei.com:9996/svn/knowledge
+外网地址 https://182.150.56.46:9996/svn/Knowledge   (K小写)
+
+http://192.168.3.46:1211/knowledge/statistic 前段页面
+192.168.3.46:8080   前端页面
+
+外网商会mysql 182.150.56.46:3306 root 11!!aa
+
+内网商会mysql 192.168.3.139  root 11!!aa
+
+
+
+svn 11!!aa mysql svn服务器地址	
+
+excel  用3.8的包 出现乱码
+
+230   中文 
+240   英文
+250   中文
+260   中文
+270   英文

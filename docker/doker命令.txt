@@ -1,0 +1,73 @@
+docker run --name pwc-mysql -e MYSQL_ROOT_PASSWORD=123456 -p 3306:3306 -d mysql   mysql启动
+docker run --name some-nginx  -v /some/content:/usr/share/nginx/html:ro -p 80:80 -d nginx  nginx启动
+firewall-cmd --add-port=3306/tcp --permanent 开放端口
+firewall-cmd --reload
+firewall-cmd --permanent --zone=public --list-ports 查看已经永久开放的端口
+docker stop 应用名
+docker rm  应用名
+nginx /etc/nginx/nginx.conf   /etc/nginx/conf.d/default.conf
+docker cp default.conf some-nginx:/etc/nginx/conf.d/default.conf
+/usr/share/elasticsearch/plugins/ik
+docker build -t k-dictionary:v1 .
+docker logs 应用名
+
+docker exec -it elasticsearch /bin/bash  进入容器命令
+
+
+FROM java:8
+VOLUME /tmp
+ADD ./knowledge-dictionary-1.0-SNAPSHOT.jar /app/
+CMD ["java", "-jar", "/app/knowledge-dictionary-1.0-SNAPSHOT.jar"]
+EXPOSE 5788
+
+docker exec -it -u root 容器名 /bin/bash
+
+docker run -d 应用名 --net host 
+
+D:\new\knowledge-theory\knowledge-dictionary\target\knowledge-dictionary-1.0-SNAPSHOT.jar
+docker run -itd --name translate -p 10000:10000 python_translate /bin/bash /run.sh
+
+logstash启动命令 docker run --name logstash2 --net somenetwork --rm -itd -v /opt/logstash_config/logstash-sample.conf:/usr/share/logstash/config/logstash-sample.conf -p 9250:9250 logstash:6.5.4
+
+sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose    docker-compose 安装
+sudo chmod +x /usr/local/bin/docker-compose
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+
+docker history logstash:6.5.4 --no-trunc=true 查看镜像制作过程
+
+cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime 修改本机时间
+echo 'Asia/Shanghai' >/etc/timezone  修改本机时区
+
+docker inspect 容器名(id) 查看容器信息
+docker top 容器名(id)   查看宿主机进程号
+docker stats  查看所有进程
+docker stats --no-stream 容器名    docker查看容器使用资源情况
+https://www.jianshu.com/p/1eb1d1d3f25e   查看docker容器日志
+
+input {
+    tcp {
+	host => "192.168.2.246" 
+        port => 9250
+        codec => "json"
+    }
+}
+
+output {
+
+     elasticsearch {
+        action => "index"
+        hosts => "192.168.2.246:9200"
+        index => "logs"
+        }
+
+}
+http://192.168.2.245:5780/knowledge-dictionary-dev.yml    查看配置中心配置(+dev)
+       容器迁移
+docker commit 容器名 镜像名(自定义)
+docker save -o 文件名 镜像名
+scp 
+docker load -i 文件名
+
+
+
+

@@ -1,0 +1,229 @@
+GET en-us/_search
+{
+  "size": 10, 
+  "query": {
+    "term": {
+      "english.keyword":"A racing heart sensation which begins and ends abruptly (within minutes) may represent paroxysmal supraventricular tachycardia."
+    }
+  }
+}
+GET en-us
+
+GET testdb/_search
+GET *
+
+GET en-us/data/_search
+{ 
+   "size":60,
+   "query": {"match": {
+     "sub_domain": 150
+   }}     
+  
+}
+
+PUT en-us/_settings
+{
+  "index":{
+    "max_result_window":1200000000
+  }
+}
+
+GET en-us
+
+
+#创建索引
+PUT en-us1
+
+  {
+  "mappings": {
+    "data": { 
+      "dynamic":"strict",
+      "properties": { 
+        "domain":    { "type": "long"  }, 
+        "sub_domain": { "type": "long"  }, 
+        "chinese":      { "type": "text", "analyzer": "ik_max_word" },  
+        "english":  {
+          "type":   "text"
+        }
+      }
+    }
+  }
+}
+   正则匹配
+
+GET zh-cn_en-us/_search
+{
+  "size": 2, 
+  "query": {
+     "bool": {
+       "must": [
+         {
+           "regexp":{
+             "target":"success2.*"
+           }
+         }
+       ]
+     }
+  }
+}
+
+GET zh-cn_en-us/
+ 
+分词结果
+
+GET _analyze?pretty
+{
+  "analyzer": "ik_max_word",
+  "text": "success2 hello"
+}
+    创建索引
+
+PUT zh-cn_en-us_1
+{
+  "mappings": {
+      "data": {
+        "dynamic": "false",
+        "properties": {
+          "domain": {
+            "type": "keyword"
+          },
+          "fileId": {
+            "type": "keyword"
+          },
+          "gmtCreate": {
+            "type": "date",
+            "format": "yyyy-MM-dd HH:mm:ss"
+          },
+          "gmtUpdate": {
+            "type": "date",
+            "format": "yyyy-MM-dd HH:mm:ss"
+          },
+          "source": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            },
+         
+            "analyzer": "ik_max_word"
+          },
+          "sourceDesc": {
+            "type": "text",
+           "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            },
+         
+            "analyzer": "ik_max_word"
+          },
+          "subDomain": {
+            "type": "keyword"
+          },
+          "target": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            },
+          
+            "analyzer": "ik_max_word"
+          },
+          "targetDesc": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            },
+            "analyzer": "ik_max_word"
+          }
+        }
+      }
+    }
+}
+   添加别名
+
+POST /_aliases
+{
+  "actions": [
+    {
+      "add": {
+        "index": "zh-cn_en-us_1",
+        "alias": "zh-cn_en-us2"
+      }
+    }
+  ]
+}
+
+
+  插入数据
+POST zh-cn_en-us_1/data
+{
+  "sourceDesc": "成功",
+          "subDomain": "文体研教-教育培训",
+          "domain": "文体研教",
+          "source": "成功",
+          "targetDesc": "success",
+          "gmtCreate": "2019-02-28 16:42:07",
+          "fileId": "402883ce69323411016932d5eae20003",
+          "target": "success"
+}
+es 根据数据去重
+GET en-us/data/_search
+{
+  "aggs": {
+    "uniq_attr": {
+      "cardinality": {
+        "field": "english.keyword"
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
