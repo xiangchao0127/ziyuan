@@ -24,3 +24,7 @@ docker run --restart=always -d --name=pangu-file -p 5766:5766 --privileged=true 
 
 #pangu-file2
 docker run -it --restart=always --hostname=localhost --privileged=true --name=pangu-file-5766 --net=host -v /opt/docker/nginx/html:/opt/docker/nginx/html -v /etc/localtime:/etc/localtime -v /opt/app/pangu-file/:/app/ java:8 /bin/bash /app/start.sh
+
+#start.sh
+cd /app
+java -jar pangu-file-1.0-SNAPSHOT.jar ->& log.txt
