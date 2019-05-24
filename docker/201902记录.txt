@@ -5,7 +5,7 @@ github git add .  git commit -m "update" git push /d/javaWorkStation/resource  g
 python manage.py runserver 0.0.0.0:8000 django运行命令
 admin 123321 browser
 python -m SimpleHTTPServer 8000 python2.0  搭建http服务
-python -m http.server 8000  python3.0 
+python -m http.server 8000        python3.0 
 http://192.168.3.11:3000  知识说测试前段
 from tensorflow.python.ops import control_flow_ops tensorflow运行报错
 spring boot  @one2one 实体类不要id  设置相互设置对象
