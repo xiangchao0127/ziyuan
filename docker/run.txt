@@ -28,3 +28,5 @@ docker run -it --restart=always --hostname=localhost --privileged=true --name=pa
 #start.sh
 cd /app
 java -jar pangu-file-1.0-SNAPSHOT.jar ->& log.txt
+#centos7 docker pull centos:7
+docker run -tid --name centos7 -v /sys/fs/cgroup:/sys/fs/cgroup:ro  centos:7
