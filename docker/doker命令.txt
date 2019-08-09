@@ -1,17 +1,17 @@
-docker run --name pwc-mysql -e MYSQL_ROOT_PASSWORD=123456 -p 3306:3306 -d mysql   mysqlÆô¶¯
-docker run --name some-nginx  -v /some/content:/usr/share/nginx/html:ro -p 80:80 -d nginx  nginxÆô¶¯
-firewall-cmd --add-port=3306/tcp --permanent ¿ª·Å¶Ë¿Ú
+docker run --name pwc-mysql -e MYSQL_ROOT_PASSWORD=123456 -p 3306:3306 -d mysql   mysqlå¯åŠ¨
+docker run --name some-nginx  -v /some/content:/usr/share/nginx/html:ro -p 80:80 -d nginx  nginxå¯åŠ¨
+firewall-cmd --add-port=3306/tcp --permanent å¼€æ”¾ç«¯å£
 firewall-cmd --reload
-firewall-cmd --permanent --zone=public --list-ports ²é¿´ÒÑ¾­ÓÀ¾Ã¿ª·ÅµÄ¶Ë¿Ú
-docker stop Ó¦ÓÃÃû
-docker rm  Ó¦ÓÃÃû
+firewall-cmd --permanent --zone=public --list-ports æŸ¥çœ‹å·²ç»æ°¸ä¹…å¼€æ”¾çš„ç«¯å£
+docker stop åº”ç”¨å
+docker rm  åº”ç”¨å
 nginx /etc/nginx/nginx.conf   /etc/nginx/conf.d/default.conf
 docker cp default.conf some-nginx:/etc/nginx/conf.d/default.conf
 /usr/share/elasticsearch/plugins/ik
 docker build -t k-dictionary:v1 .
-docker logs Ó¦ÓÃÃû
+docker logs åº”ç”¨å
 
-docker exec -it elasticsearch /bin/bash  ½øÈëÈİÆ÷ÃüÁî
+docker exec -it elasticsearch /bin/bash  è¿›å…¥å®¹å™¨å‘½ä»¤
 
 
 FROM java:8
@@ -20,29 +20,29 @@ ADD ./knowledge-dictionary-1.0-SNAPSHOT.jar /app/
 CMD ["java", "-jar", "/app/knowledge-dictionary-1.0-SNAPSHOT.jar"]
 EXPOSE 5788
 
-docker exec -it -u root ÈİÆ÷Ãû /bin/bash
+docker exec -it -u root å®¹å™¨å /bin/bash
 
-docker run -d Ó¦ÓÃÃû --net host 
+docker run -d åº”ç”¨å --net host 
 
 D:\new\knowledge-theory\knowledge-dictionary\target\knowledge-dictionary-1.0-SNAPSHOT.jar
 docker run -itd --name translate -p 10000:10000 python_translate /bin/bash /run.sh
 
-logstashÆô¶¯ÃüÁî docker run --name logstash2 --net somenetwork --rm -itd -v /opt/logstash_config/logstash-sample.conf:/usr/share/logstash/config/logstash-sample.conf -p 9250:9250 logstash:6.5.4
+logstashå¯åŠ¨å‘½ä»¤ docker run --name logstash2 --net somenetwork --rm -itd -v /opt/logstash_config/logstash-sample.conf:/usr/share/logstash/config/logstash-sample.conf -p 9250:9250 logstash:6.5.4
 
-sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose    docker-compose °²×°
+sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose    docker-compose å®‰è£…
 sudo chmod +x /usr/local/bin/docker-compose
 sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 
-docker history logstash:6.5.4 --no-trunc=true ²é¿´¾µÏñÖÆ×÷¹ı³Ì
+docker history logstash:6.5.4 --no-trunc=true æŸ¥çœ‹é•œåƒåˆ¶ä½œè¿‡ç¨‹
 
-cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime ĞŞ¸Ä±¾»úÊ±¼ä
-echo 'Asia/Shanghai' >/etc/timezone  ĞŞ¸Ä±¾»úÊ±Çø
+cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime ä¿®æ”¹æœ¬æœºæ—¶é—´
+echo 'Asia/Shanghai' >/etc/timezone  ä¿®æ”¹æœ¬æœºæ—¶åŒº
 
-docker inspect ÈİÆ÷Ãû(id) ²é¿´ÈİÆ÷ĞÅÏ¢
-docker top ÈİÆ÷Ãû(id)   ²é¿´ËŞÖ÷»ú½ø³ÌºÅ
-docker stats  ²é¿´ËùÓĞ½ø³Ì
-docker stats --no-stream ÈİÆ÷Ãû    docker²é¿´ÈİÆ÷Ê¹ÓÃ×ÊÔ´Çé¿ö
-https://www.jianshu.com/p/1eb1d1d3f25e   ²é¿´dockerÈİÆ÷ÈÕÖ¾
+docker inspect å®¹å™¨å(id) æŸ¥çœ‹å®¹å™¨ä¿¡æ¯
+docker top å®¹å™¨å(id)   æŸ¥çœ‹å®¿ä¸»æœºè¿›ç¨‹å·
+docker stats  æŸ¥çœ‹æ‰€æœ‰è¿›ç¨‹
+docker stats --no-stream å®¹å™¨å    dockeræŸ¥çœ‹å®¹å™¨ä½¿ç”¨èµ„æºæƒ…å†µ
+https://www.jianshu.com/p/1eb1d1d3f25e   æŸ¥çœ‹dockerå®¹å™¨æ—¥å¿—
 
 input {
     tcp {
@@ -61,12 +61,16 @@ output {
         }
 
 }
-http://192.168.2.245:5780/knowledge-dictionary-dev.yml    ²é¿´ÅäÖÃÖĞĞÄÅäÖÃ(+dev)
-       ÈİÆ÷Ç¨ÒÆ
-docker commit ÈİÆ÷Ãû ¾µÏñÃû(×Ô¶¨Òå)
-docker save -o ÎÄ¼şÃû ¾µÏñÃû
+http://192.168.2.245:5780/knowledge-dictionary-dev.yml    æŸ¥çœ‹é…ç½®ä¸­å¿ƒé…ç½®(+dev)
+       å®¹å™¨è¿ç§»
+docker commit å®¹å™¨å é•œåƒå(è‡ªå®šä¹‰)
+docker save -o æ–‡ä»¶å é•œåƒå
 scp 
-docker load -i ÎÄ¼şÃû
+docker load -i æ–‡ä»¶å
+
+exe4j
+exeå¼€æœºè‡ªå¯
+reg add HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v myapp /t reg_sz /d "ç»å¯¹è·¯å¾„.exe"
 
 
 
