@@ -1,0 +1,37 @@
+
+docker save $(docker images | grep -v REPOSITORY | awk ‘BEGIN{OFS=“:”;ORS=“ ”}{print $1,$2}’) -o haha.tar   打包所有镜像
+
+阿里巴巴监控工具
+docker exec -it  ${containerId} /bin/bash -c "wget https://alibaba.github.io/arthas/arthas-boot.jar && java -jar arthas-boot.jar"
+jad 编译类  thread + 线程id  查看线程占用栈
+arthas 监控 druid 监控
+docker update -m 1.9g --memory-swap -1 bf3b099fe124 更新容器内存
+java -Xmx1024m -Xmn200m -Xms200m -Xdebug -Xrunjdwp:transport=dt_socket,address=5010,server=y,suspend=n -jar pangu-permission-service-1.0-SNAPSHOT.jar ->& log.txt   设置jvm启动参数 防止占用过大内存
+
+ docker 安装目录空间不够 ln -s 软连接   ln -s /home/lib/ /var/lib/
+
+ps -Lf pid | wc -l 查看进程线程数
+ls -l --time-style=long-iso  看时间
+grep "Out of memory" /var/log/messages 查看centos oom信息
+
+firewall-cmd --add-port=3306/tcp --permanent 开放端口
+firewall-cmd --reload
+firewall-cmd --permanent --zone=public --list-ports 查看已经永久开放的端口  
+
+linux 默认读取/etc/localtime时区       docker里的java应用 默认读取的是/etc/timezone时区
+找不到包  删除.m2的所有配置文件
+
+
+ //懒加载解决$
+ List<ChoiceQuestionDO> list = JSON.parseArray(JSON.toJSONString(all.getContent(), JsonConfig.serializeFilter, JsonConfig.serializerFeatures), ChoiceQuestionDO.class);
+        PageImpl<ChoiceQuestionDO> choiceQuestionDOS = new PageImpl<>(list, all.getPageable(), all.getTotalElements());
+
+xmanager idea 问题  xshell 属性 连接xmanager
+中文乱码
+yum -y install wqy-zenhei-fonts*
+vim /etc/locale.conf
+LC_ALL="zh_CN.utf8"
+LC_CTYPE="zh_CN.utf8"
+
+yum install subversion
+/usr/bin/svn
