@@ -17,7 +17,23 @@ docker run --restart=always -d --name elasticsearch --net somenetwork -v /etc/lo
 docker run --restart=always -d --name kibana --net somenetwork -v /etc/localtime:/etc/localtime -p 5601:5601 kibana:v1
 
 #logstash
-docker run --restart=always --name logstash --net somenetwork -d  -v /etc/localtime:/etc/localtime -p 9250:9250 logstash:v1
+docker run --restart=always --name logstash --net somenetwork -d  -v /etc/localtime:/etc/localtime -p 9250:9250 
+logstash:v1
+/usr/share/logstash/pipeline/logstash.conf   配置文件
+input {
+    tcp {
+        port => 9250
+        codec => "json"
+    }
+}
+output {
+     elasticsearch {
+        action => "index"
+        hosts => "elasticsearch:9200"
+        index => "logs"
+        }
+}
+
 
 #pangu-file
 docker run --restart=always -d --name=pangu-file -p 5766:5766 --privileged=true --net=host -v /opt/docker/nginx/html:/opt/docker/nginx/html  -v /etc/localtime:/etc/localtime --hostname=localhost pangu-file:v1
