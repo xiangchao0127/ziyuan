@@ -31,7 +31,7 @@ PUT en-us/_settings
 GET en-us
 
 
-#´´½¨Ë÷Òı
+#åˆ›å»ºç´¢å¼•
 PUT en-us1
 
   {
@@ -49,7 +49,7 @@ PUT en-us1
     }
   }
 }
-   ÕıÔòÆ¥Åä
+   æ­£åˆ™åŒ¹é…
 
 GET zh-cn_en-us/_search
 {
@@ -69,14 +69,14 @@ GET zh-cn_en-us/_search
 
 GET zh-cn_en-us/
  
-·Ö´Ê½á¹û
+åˆ†è¯ç»“æœ
 
 GET _analyze?pretty
 {
   "analyzer": "ik_max_word",
   "text": "success2 hello"
 }
-    ´´½¨Ë÷Òı
+    åˆ›å»ºç´¢å¼•
 
 PUT zh-cn_en-us_1
 {
@@ -148,7 +148,7 @@ PUT zh-cn_en-us_1
       }
     }
 }
-   Ìí¼Ó±ğÃû
+   æ·»åŠ åˆ«å
 
 POST /_aliases
 {
@@ -163,19 +163,19 @@ POST /_aliases
 }
 
 
-  ²åÈëÊı¾İ
+  æ’å…¥æ•°æ®
 POST zh-cn_en-us_1/data
 {
-  "sourceDesc": "³É¹¦",
-          "subDomain": "ÎÄÌåÑĞ½Ì-½ÌÓıÅàÑµ",
-          "domain": "ÎÄÌåÑĞ½Ì",
-          "source": "³É¹¦",
+  "sourceDesc": "æˆåŠŸ",
+          "subDomain": "æ–‡ä½“ç ”æ•™-æ•™è‚²åŸ¹è®­",
+          "domain": "æ–‡ä½“ç ”æ•™",
+          "source": "æˆåŠŸ",
           "targetDesc": "success",
           "gmtCreate": "2019-02-28 16:42:07",
           "fileId": "402883ce69323411016932d5eae20003",
           "target": "success"
 }
-es ¸ù¾İÊı¾İÈ¥ÖØ
+es æ ¹æ®æ•°æ®å»é‡
 GET en-us/data/_search
 {
   "aggs": {
@@ -185,6 +185,34 @@ GET en-us/data/_search
       }
     }
   }
+}
+å¤šæ¡ä»¶æŸ¥è¯¢
+GET logs/_search
+{
+  "size":10,
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "term": {
+      "level.keyword":"ERROR"
+        }
+        },
+        {
+          "term": {
+            "host.keyword": "192.168.2.243"
+          }
+        }
+      ]
+    }
+  },
+  "sort": [
+    {
+      "@timestamp": {
+        "order": "desc"
+      }
+    }
+  ]
 }
 
 
