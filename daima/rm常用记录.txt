@@ -1,0 +1,370 @@
+云桌面   https://192.168.2.15/pages/login.do?isLogout=1
+
+
+docker save $(docker images | grep -v REPOSITORY | awk ‘BEGIN{OFS=“:”;ORS=“ ”}{print $1,$2}’) -o haha.tar   打包所有镜像
+
+阿里巴巴监控工具
+docker exec -it  ${containerId} /bin/bash -c "wget https://alibaba.github.io/arthas/arthas-boot.jar && java -jar arthas-boot.jar"
+jad 编译类  thread + 线程id  查看线程占用栈
+arthas 监控 druid 监控
+docker update -m 1.9g --memory-swap -1 bf3b099fe124 更新容器内存
+java -Xmx1024m -Xmn200m -Xms200m -Xdebug -Xrunjdwp:transport=dt_socket,address=5010,server=y,suspend=n -jar pangu-permission-service-1.0-SNAPSHOT.jar ->& log.txt   设置jvm启动参数 防止占用过大内存
+
+ docker 安装目录空间不够 ln -s 软连接   ln -s /home/lib/ /var/lib/
+
+ps -Lf pid | wc -l 查看进程线程数
+ls -l --time-style=long-iso  看时间
+grep "Out of memory" /var/log/messages 查看centos oom信息
+
+firewall-cmd --add-port=3306/tcp --permanent 开放端口
+firewall-cmd --reload
+firewall-cmd --permanent --zone=public --list-ports 查看已经永久开放的端口  
+
+linux 默认读取/etc/localtime时区       docker里的java应用 默认读取的是/etc/timezone时区
+找不到包  删除.m2的所有配置文件
+
+
+ //懒加载解决$
+ List<ChoiceQuestionDO> list = JSON.parseArray(JSON.toJSONString(all.getContent(), JsonConfig.serializeFilter, JsonConfig.serializerFeatures), ChoiceQuestionDO.class);
+        PageImpl<ChoiceQuestionDO> choiceQuestionDOS = new PageImpl<>(list, all.getPageable(), all.getTotalElements());
+
+xmanager idea 问题  xshell 属性 连接xmanager
+中文乱码
+yum -y install wqy-zenhei-fonts*
+vim /etc/locale.conf
+LC_ALL="zh_CN.utf8"
+LC_CTYPE="zh_CN.utf8"
+
+yum install subversion
+/usr/bin/svn
+
+http://192.168.2.204:8111/pangu/GetOrgByStaffNum?staffnum=X00967 根据工号查询部门信息
+{"Success":true,"Msg":null,"Errors":null,"Data":[{"OrgID":"af04cbfe-d5dc-486e-8a57-8e58c456a648","OrgName":"多媒体与大数据组"}]}
+
+获取子组
+http://192.168.2.204:8111/pub/GetSubOrgList?orgid=680756D8-0F38-4A7E-99C8-F62CD732A17
+
+http://admin.lanpecker.com/#/  rm域名地址
+
+402883c46d0435d5016d0442c6870068 资源单数据权限列表
+402883c46d0435d5016d0442c6870072
+402883c46d0435d5016d0442c687006d
+
+
+
+set global wait_timeout=28800;  设置空闲连接超时时间
+
+rundll32 shell32.dll,Options_RunDLL 7    cmd命令  显示文件后缀名
+chrome 拓展程序添加crx插件  修改为zip后缀名
+
+objdump -tT libopus.so                  centos查看c语言jar包源码
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+http://192.168.0.10/Account/Login?ReturnUrl=%2F
+账号：W00218   密码：123123
+@赵勇 @李航 @向超 看下W3上的资源单
+
+http://192.168.0.10:60001/Admin/PerMission/RoleList?Tag=3
+资源单测试地址 
+
+http://192.168.0.10:8001/Account/Login?ReturnUrl=%2FAdmin%2FPerMission%2FRoleList%3FTag%3D3
+资源单正式地址
+
+rm开发地址
+http://192.168.3.11:3002
+http://192.168.3.11:3001
+
+rm测试地址
+http://192.168.2.208:3002/
+http://192.168.2.208:3001/
+
+rm正式地址
+http://192.168.2.251:3001
+http://192.168.2.251:3002
+
+
+
+笔译准资源列表
+SELECT
+  sys_user.id,
+	sys_user.user_code AS userCode,
+	sys_user.is_enabled AS isEnabled,
+	sys_user.user_name AS userName,
+	sys_user.account AS account,
+	sys_user.nick_name AS nickName,
+	sys_user.email AS email,
+	sys_user.telephone AS telephone,
+	center_user_extension.certificate_passed AS certificatePassed,
+	center_user_extension.permanent_address AS permanentAddress,
+	exam_customer_level.origin_language_name AS originLanguageName,
+	exam_customer_level.target_language_name AS targetLanguageName,
+	exam_customer_level.domain AS domain,
+	exam_customer_level.sub_domain AS subDomain,
+	exam_customer_level.level_type AS levelType,
+	exam_customer_level.`level` AS level 
+FROM
+	sys_user
+	JOIN  center_user_extension ON sys_user.id = center_user_extension.user_id
+	LEFT JOIN exam_customer_level ON exam_customer_level.user_id = center_user_extension.user_id
+	LEFT JOIN exam_customer_record ON exam_customer_record.level_id = exam_customer_level.id 
+WHERE
+	center_user_extension.whether_translator = '准译员' 
+	AND center_user_extension.translator_type = 2
+ 	AND FIND_IN_SET( '笔译', center_user_extension.skills )
+
+
+
+笔译资源列表
+SELECT
+	sys_user.user_code AS userCode,
+	sys_user.account AS account,
+	sys_user.user_name AS userName,
+	sys_user.user_type AS userType,
+	center_user_extension.skills AS skills,
+	center_user_extension.mother_tongue AS motherTongue,
+	center_user_extend.source_language_name AS sourceLanguageName,
+	center_user_extend.target_language_name AS targetLanguageName,	
+	center_user_extend.area_name AS areaName,
+	center_user_extend.sub_area_name AS subAreaName,
+	center_user_extend.level_name AS levelName,
+	center_user_extension.certificate_passed AS certificatePassed,
+	center_user_extension.settle_certificate_passed AS settleCertificatePassed,
+	center_user_extension.order_received AS orderReived,
+	center_user_extension.number_of_complaints AS numberOfComplaints,	
+	center_user_extension.receipt AS receipted,
+	center_user_extension.translator_idle_status AS translatorIdleStatus,
+	interpreter_total_score.total_score AS totalScore,
+	interpreter_total_score.order_average_score AS orderAverageScore,
+	center_user_extension.permanent_address AS permanentAddress,
+	sys_user.is_enabled AS isEnabled
+FROM
+	sys_user
+INNER JOIN center_user_extension ON sys_user.id = center_user_extension.user_id
+INNER JOIN interpreter_total_score ON center_user_extension.user_id = interpreter_total_score.user_id
+LEFT JOIN center_user_extend ON center_user_extend.user_id = center_user_extension.user_id
+WHERE
+	center_user_extension.whether_translator = '译员'
+AND center_user_extension.translator_type = 2 
+
+
+
+
+
+其他准资源列表
+SELECT	
+  sys_user.id AS id, 
+	sys_user.user_code AS usercode,    
+	sys_user.account AS account,
+	sys_user.nick_name AS nickname,
+	sys_user.user_name AS username,
+	center_user_extension.certificate_passed AS certificatepassed,
+	new_skill_audit.skill_type AS skilltype,
+	new_skill_audit.language_info AS langaugeinfo, 
+	center_user_extension.permanent_address AS permanentaddress, 
+	new_skill_audit.audit_status AS auditStatus, 
+	new_skill_audit.gmt_create AS gmtCreate, 
+	sys_user.is_enabled AS isEnabled
+FROM
+	sys_user
+	INNER JOIN center_user_extension ON sys_user.id = center_user_extension.user_id
+	RIGHT JOIN  new_skill_audit ON sys_user.id = new_skill_audit.user_id
+	WHERE center_user_extension.translator_type = 2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//package com.sy.pangu.rm.config;
+//
+//import com.sy.pangu.common.security.access.SecurityAccessMetadataSource;
+//import com.sy.pangu.common.util.SecurityUtils;
+//import com.sy.pangu.common.util.StringUtils;
+//import com.sy.pangu.rm.dao.RolePermissionDataDao;
+//import com.sy.pangu.rm.entity.RolePermissionData;
+//import org.apache.commons.logging.Log;
+//import org.apache.commons.logging.LogFactory;
+//import org.hibernate.EmptyInterceptor;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.stereotype.Component;
+//import org.springframework.web.context.request.RequestContextHolder;
+//import org.springframework.web.context.request.ServletRequestAttributes;
+//
+//import javax.servlet.http.HttpServletRequest;
+//import java.util.*;
+////select biyiinfo0_.id as id1_3_, biyiinfo0_.actual_coping as actual_c2_3_, biyiinfo0_.chapter as chapter3_3_, biyiinfo0_.company_group as company_4_3_, biyiinfo0_.evaluation_happening as evaluati5_3_, biyiinfo0_.finish_time as finish_t6_3_, biyiinfo0_.language_pair as language7_3_, biyiinfo0_.order_time as order_ti8_3_, biyiinfo0_.part_time_id as part_tim9_3_, biyiinfo0_.part_time_name as part_ti10_3_, biyiinfo0_.project_manager as project11_3_, biyiinfo0_.project_no as project12_3_, biyiinfo0_.project_word_count as project13_3_, biyiinfo0_.quality_level as quality14_3_, biyiinfo0_.task_id as task_id15_3_, biyiinfo0_.unit_of_measurement as unit_of16_3_, biyiinfo0_.unit_price as unit_pr17_3_, biyiinfo0_.video_duration as video_d18_3_, biyiinfo0_.video_task as video_t19_3_, biyiinfo0_.video_unit_price as video_u20_3_ from biyi_info biyiinfo0_ where 1=1 and video_task = '1' order by biyiinfo0_.finish_time desc limit ?\n"
+//
+///**
+// * @author XiangChao lhang
+// * @date 2019/9/23
+// */
+//@Component
+//public class sqlIntercepter extends EmptyInterceptor {
+//    Log logger = LogFactory.getLog(this.getClass());
+//
+//    private static ThreadLocal<Boolean> jude = new ThreadLocal<>();
+//    @Autowired
+//    private SecurityAccessMetadataSource securityAccessMetadataSource;
+//    @Autowired
+//    private RolePermissionDataDao rolePermissionDataDao;
+//
+//    @Override
+//    public String onPrepareStatement(String sql) {
+//        if(true){
+//            return super.onPrepareStatement(sql);
+//        }
+//        Boolean islock = jude.get();
+//        if (islock!=null&&islock) {
+//            return super.onPrepareStatement(sql);
+//        }
+//        if(!sql.contains("2=2")){
+//            return super.onPrepareStatement(sql);
+//        }
+//        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+//        if (attributes == null) {
+//            return super.onPrepareStatement(sql);
+//        }
+//        String needDataUrl = securityAccessMetadataSource.getResutl(
+//                securityAccessMetadataSource.dataPermissionUrls, attributes.getRequest());
+//        if (needDataUrl == null) {
+//            return super.onPrepareStatement(sql);
+//        }
+//        //funccode,codevalue
+//        Map<String, String> codeValue = (Map<String, String>) securityAccessMetadataSource.dataPermissionUrlCodes.get(needDataUrl);
+//        List<String> roleCodeList = SecurityUtils.getPrincipal().getRoleCodeList();
+//
+//        logger.info("roleCode : " + roleCodeList);
+//        HttpServletRequest request = attributes.getRequest();
+//        // 记录下请求内容
+//        logger.info("URL : " + request.getRequestURL().toString());
+//        logger.info("HTTP_METHOD : " + request.getMethod());
+//        logger.info("IP : " + request.getRemoteAddr());
+//        String changedSql = getPermissionData(codeValue, roleCodeList, sql);
+//        logger.info(changedSql);
+//        return changedSql;
+//    }
+//
+//    /**
+//     * 获取数据权限
+//     *
+//     * @return sql + in (' 1 ', ' 2 ', ' 3 ')
+//     */
+//    private String getPermissionData(Map<String, String> codeValue, List<String> roleCodeList, String sql) {
+//        jude.set(true);
+//        for (Map.Entry<String, String> entry : codeValue.entrySet()) {
+//            Set<String> setValues = new HashSet<>();
+//            List<RolePermissionData> datas = rolePermissionDataDao.findAllByFuncCode(entry.getKey());
+//            for (RolePermissionData data : datas) {
+//                if (roleCodeList.contains(data.getRoleCode())) {
+//                    String values = data.getValue();
+//                    if (StringUtils.isEmpty(values)) {
+//                        continue;
+//                    }
+//                    String[] valueArrary = values.split(",");
+//                    setValues.addAll(Arrays.asList(valueArrary));
+//                }
+//            }
+//            if(setValues.size()>0){
+//                String field = entry.getValue();
+//                String extraSql = field + " in ( " +String.join(",",setValues)+" )";
+//                sql = StringUtils.getDataPermissionSql(sql,extraSql);
+//            }
+//        }
+//        jude.set(false);
+//        return sql;
+//    }
+//
+//    public static void main(String[] args) {
+//        String str = "sss1=1 dd";
+//        System.out.println(str.split("1=1")[0]);
+//        System.out.println(str.split("1=1")[1]);
+//    }
+//
+//
+//}
+
+
+

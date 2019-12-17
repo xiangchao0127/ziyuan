@@ -1,0 +1,9 @@
+python要点
+
+@classmethod  @staticmethod  hasattr getattr  __new__  __str__ __init__
+设计模式  反射  if __name__ = main (导入其他包不会执行)
+
+
+pyinstaller -F qt.py --noconsole  打包成exe命令
+E:\ChromeDownloads\python-3.7.3\Scripts\designer.exe   qtDesigner页面
+E:\ChromeDownloads\python-3.7.3\python.exe -m PyQt5.uic.pyuic demo.ui -o scrapy.py  ui生成py
