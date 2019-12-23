@@ -1,10 +1,11 @@
 free -m   uname -a top du -sh .  df -m
-sudo ufw --help ·À»ğÇ½
-netstat -an | grep 3306 ²é¿´¶Ë¿ÚÕ¼ÓÃ
-service --status-all ²é¿´ÒÑ°²×°µÄ·şÎñ
-ps -aux | grep mysql ²é¿´·şÎñ
-service mysql start restart ¿ªÆô·şÎñ
-service mysql stop Í£Ö¹·şÎñ
-locateÖ®Ç°ÒªupdatedbÓÃrootÈ¨ÏŞ
-mysql Á¬½Ó²»ÉÏ  grant all privileges on *.* to ¡®root¡¯@¡¯%¡¯ identified by ¡®ÉÏ±ßµÄÃÜÂë¡¯;flush privileges; ÄÃrootÓÃÃÜÂëµÇÂ¼ ÖØÆô
+sudo ufw --help é˜²ç«å¢™
+netstat -an | grep 3306 æŸ¥çœ‹ç«¯å£å ç”¨
+service --status-all æŸ¥çœ‹å·²å®‰è£…çš„æœåŠ¡
+ps -aux | grep mysql æŸ¥çœ‹æœåŠ¡
+service mysql start restart å¼€å¯æœåŠ¡
+service mysql stop åœæ­¢æœåŠ¡
+locateä¹‹å‰è¦updatedbç”¨rootæƒé™
+mysql è¿æ¥ä¸ä¸Š  grant all privileges on *.* to â€˜rootâ€™@â€™%â€™ identified by â€˜ä¸Šè¾¹çš„å¯†ç â€™;flush privileges; æ‹¿rootç”¨å¯†ç ç™»å½• é‡å¯
+cat /var/log/messages | grep -i 'Out of memory'  æŸ¥çœ‹ç³»ç»Ÿæ—¥å¿—    -i å¿½ç•¥å¤§å°å†™
 
