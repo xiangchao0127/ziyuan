@@ -48,3 +48,98 @@ server:
 logging:
   level:
     root: info
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+<parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.5.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <!--            <scope>test</scope>-->
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>20.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.1.10</version>
+        </dependency>
+
+    </dependencies>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      @Bean
+    public ServletRegistrationBean statViewServle(){
+        ServletRegistrationBean servletRegistrationBean=new ServletRegistrationBean(new StatViewServlet(),"/druid/*");
+        //IP白名单
+        //servletRegistrationBean.addInitParameter("allow","192.168.1.12,127.0.0.1");
+        //IP黑名单
+        //servletRegistrationBean.addInitParameter("deny","192.168.4.23");
+        //控制台用户
+        servletRegistrationBean.addInitParameter("loginUsername","admin");
+        servletRegistrationBean.addInitParameter("loginPassword","123456");
+        //是否能够重置数据
+        servletRegistrationBean.addInitParameter("resetEnable","false");
+        return servletRegistrationBean;
+    }
+    @Bean
+    public FilterRegistrationBean statFilter(){
+        FilterRegistrationBean filterRegistrationBean=new FilterRegistrationBean(new WebStatFilter());
+        //添加过滤规则
+        filterRegistrationBean.addInitParameter("exclusions","*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*");
+        return filterRegistrationBean;
+    }
+    @ConfigurationProperties(prefix = "spring.datasource")
+    @Bean
+    public DruidDataSource druidDataSource() {
+        return new DruidDataSource();
+    }
