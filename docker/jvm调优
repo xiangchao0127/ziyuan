@@ -1,0 +1,20 @@
+https://www.cnblogs.com/wxisme/p/9878494.html   jvm调优博客
+jps 或任务管理器查看pid
+jstack -l [pid]  把线程打印出来查看栈情况
+jstat -gcutil [pid] 1000  跟踪GC情况
+------
+S0 survivor0使用百分比
+S1 survivor1使用百分比
+E Eden区使用百分比
+O 老年代使用百分比
+M 元数据区使用百分比
+CCS 压缩使用百分比
+YGC 年轻代垃圾回收次数
+YGCT 年轻代垃圾回收消耗时间
+FGC 老年代垃圾回收次数
+FGCT 老年代垃圾回收消耗时间
+GCT 垃圾回收消耗总时间
+------
+jmap -histo [pid] 打印对象信息
+
+jconsole, jvisualvm  监控jvm工具
