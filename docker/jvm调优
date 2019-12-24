@@ -18,3 +18,33 @@ GCT 垃圾回收消耗总时间
 jmap -histo [pid] 打印对象信息
 
 jconsole, jvisualvm  监控jvm工具
+
+1.堆内存溢出（outOfMemoryError：java heap space）
+
+       在jvm规范中，堆中的内存是用来生成对象实例和数组的。
+
+       如果细分，堆内存还可以分为年轻代和年老代，年轻代包括一个eden区和两个survivor区。
+
+       当生成新对象时，内存的申请过程如下：
+
+          a、jvm先尝试在eden区分配新建对象所需的内存；
+
+          b、如果内存大小足够，申请结束，否则下一步；
+
+          c、jvm启动youngGC，试图将eden区中不活跃的对象释放掉，释放后若Eden空间仍然不足以放入新对象，则试图将部分Eden中活跃对象放入Survivor区；
+
+          d、Survivor区被用来作为Eden及old的中间交换区域，当OLD区空间足够时，Survivor区的对象会被移到Old区，否则会被保留在Survivor区；
+
+          e、 当OLD区空间不够时，JVM会在OLD区进行full GC；
+
+          f、full GC后，若Survivor及OLD区仍然无法存放从Eden复制过来的部分对象，导致JVM无法在Eden区为新对象创建内存区域，则出现”out of memory错误”：
+
+                                   outOfMemoryError：java heap space
+2.方法区内存溢出（outOfMemoryError：permgem space）
+
+       在jvm规范中，方法区主要存放的是类信息、常量、静态变量等。
+
+       所以如果程序加载的类过多，或者使用反射、gclib等这种动态代理生成类的技术，就可能导致该区发生内存溢出，一般该区发生内存溢出时的错误信息为：
+
+             outOfMemoryError：permgem space                                   
+3.栈内存溢出（java.lang.StackOverflowError） 一般是采用递归                                   
