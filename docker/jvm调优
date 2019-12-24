@@ -47,4 +47,12 @@ jconsole, jvisualvm  监控jvm工具
        所以如果程序加载的类过多，或者使用反射、gclib等这种动态代理生成类的技术，就可能导致该区发生内存溢出，一般该区发生内存溢出时的错误信息为：
 
              outOfMemoryError：permgem space                                   
-3.栈内存溢出（java.lang.StackOverflowError） 一般是采用递归                                   
+3.栈内存溢出（java.lang.StackOverflowError） 一般是采用递归     
+五、为了避免内存泄露，在编写代码的过程中可以参考下面的建议： 
+
+1、尽早释放无用对象的引用 
+2、使用字符串处理，避免使用String，应大量使用StringBuffer，每一个String对象都得独立占用内存一块区域 
+3、尽量少用静态变量，因为静态变量存放在永久代（方法区），永久代基本不参与垃圾回收
+4、避免在循环中创建对象
+5、开启大型文件或从数据库一次拿了太多的数据很容易造成内存溢出，所以在这些地方要大概计算一下数据量的最大值是多少，并且设定所需最小及最大的内存空间值。
+来自博客https://www.cnblogs.com/HigginCui/p/10484731.html
