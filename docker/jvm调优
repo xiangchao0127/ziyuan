@@ -1,8 +1,9 @@
 https://www.cnblogs.com/wxisme/p/9878494.html   jvm调优博客
 jps 或任务管理器查看pid
-jstack -l [pid]  把线程打印出来查看栈情况
-jstat -gcutil [pid] 1000  跟踪GC情况
 top -Hp [pid] 查看线程占用 （linux命令）
+jstack -l [pid] |grep -i '0x线程id转16进制(小写) -A 10' 把线程打印出来查看栈情况  忽略大小写打印10行
+jstat -gcutil [pid] 1000  跟踪GC情况
+
 ------
 S0 survivor0使用百分比
 S1 survivor1使用百分比
