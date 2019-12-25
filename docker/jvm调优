@@ -1,3 +1,5 @@
+java -Xmx2024m -Xmn200m -Xms200m -Xdebug -Xrunjdwp:transport=dt_socket,address=5012,server=y,suspend=n -jar  pangu-rm-service-1.0-SNAPSHOT.jar ->& /dev/null
+-XX:+PrintGCDateStamps -XX:+PrintGCDetails -Xloggc:./gclogs -Xmx512m -Xmn200m -Xms200m
 https://www.cnblogs.com/wxisme/p/9878494.html   jvm调优博客
 jps 或任务管理器查看pid
 top -Hp [pid] 查看线程占用 （linux命令）
