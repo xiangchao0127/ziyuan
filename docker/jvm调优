@@ -1,0 +1,62 @@
+java -Xmx2024m -Xmn200m -Xms200m -Xdebug -Xrunjdwp:transport=dt_socket,address=5012,server=y,suspend=n -jar  pangu-rm-service-1.0-SNAPSHOT.jar ->& /dev/null
+-XX:+PrintGCDateStamps -XX:+PrintGCDetails -Xloggc:./gclogs -Xmx512m -Xmn200m -Xms200m
+https://www.cnblogs.com/wxisme/p/9878494.html   jvm调优博客
+jps 或任务管理器查看pid
+top -Hp [pid] 查看线程占用 （linux命令）
+jstack -l [pid] |grep -i '0x线程id转16进制(小写) -A 10' 把线程打印出来查看栈情况  忽略大小写打印10行
+jstat -gcutil [pid] 1000  跟踪GC情况
+
+------
+S0 survivor0使用百分比
+S1 survivor1使用百分比
+E Eden区使用百分比
+O 老年代使用百分比
+M 元数据区使用百分比
+CCS 压缩使用百分比
+YGC 年轻代垃圾回收次数
+YGCT 年轻代垃圾回收消耗时间
+FGC 老年代垃圾回收次数
+FGCT 老年代垃圾回收消耗时间
+GCT 垃圾回收消耗总时间
+------
+jmap -histo [pid] 打印对象信息
+
+jconsole, jvisualvm  监控jvm工具
+
+1.堆内存溢出（outOfMemoryError：java heap space）
+
+       在jvm规范中，堆中的内存是用来生成对象实例和数组的。
+
+       如果细分，堆内存还可以分为年轻代和年老代，年轻代包括一个eden区和两个survivor区。
+
+       当生成新对象时，内存的申请过程如下：
+
+          a、jvm先尝试在eden区分配新建对象所需的内存；
+
+          b、如果内存大小足够，申请结束，否则下一步；
+
+          c、jvm启动youngGC，试图将eden区中不活跃的对象释放掉，释放后若Eden空间仍然不足以放入新对象，则试图将部分Eden中活跃对象放入Survivor区；
+
+          d、Survivor区被用来作为Eden及old的中间交换区域，当OLD区空间足够时，Survivor区的对象会被移到Old区，否则会被保留在Survivor区；
+
+          e、 当OLD区空间不够时，JVM会在OLD区进行full GC；
+
+          f、full GC后，若Survivor及OLD区仍然无法存放从Eden复制过来的部分对象，导致JVM无法在Eden区为新对象创建内存区域，则出现”out of memory错误”：
+
+                                   outOfMemoryError：java heap space
+2.方法区内存溢出（outOfMemoryError：permgem space）
+
+       在jvm规范中，方法区主要存放的是类信息、常量、静态变量等。
+
+       所以如果程序加载的类过多，或者使用反射、gclib等这种动态代理生成类的技术，就可能导致该区发生内存溢出，一般该区发生内存溢出时的错误信息为：
+
+             outOfMemoryError：permgem space                                   
+3.栈内存溢出（java.lang.StackOverflowError） 一般是采用递归     
+五、为了避免内存泄露，在编写代码的过程中可以参考下面的建议： 
+
+1、尽早释放无用对象的引用 
+2、使用字符串处理，避免使用String，应大量使用StringBuffer，每一个String对象都得独立占用内存一块区域 
+3、尽量少用静态变量，因为静态变量存放在永久代（方法区），永久代基本不参与垃圾回收
+4、避免在循环中创建对象
+5、开启大型文件或从数据库一次拿了太多的数据很容易造成内存溢出，所以在这些地方要大概计算一下数据量的最大值是多少，并且设定所需最小及最大的内存空间值。
+来自博客https://www.cnblogs.com/HigginCui/p/10484731.html
