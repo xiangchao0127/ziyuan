@@ -1,15 +1,15 @@
-Ô±¹¤¹¤ºÅ  X00967
+å‘˜å·¥å·¥å·  X00967
 QQ 3003363056
-http://192.168.2.251:8101/Pub/GetSpecialtyList  Õâ¸öÊÇÁìÓò²ã¼¶½á¹¹ 
-http://ot.lan-bridge.com.cn:8103/LanguageType/kinds   ÕâÊÇÓïÖÖ 
-µ½Ê±ºò¾ÍÊÇ°´ÕÕÓïÖÖ+ÁìÓò + ¾ä×Ó + Æ¥Åä¶È ÎªËÑË÷Ìõ¼ş 
+http://192.168.2.251:8101/Pub/GetSpecialtyList  è¿™ä¸ªæ˜¯é¢†åŸŸå±‚çº§ç»“æ„ 
+http://ot.lan-bridge.com.cn:8103/LanguageType/kinds   è¿™æ˜¯è¯­ç§ 
+åˆ°æ—¶å€™å°±æ˜¯æŒ‰ç…§è¯­ç§+é¢†åŸŸ + å¥å­ + åŒ¹é…åº¦ ä¸ºæœç´¢æ¡ä»¶ 
 http://192.168.0.10:60010/master-status hbase
 http://192.168.0.10:9200/ es
 http://192.168.0.10:50070/dfshealth.html#tab-overview hadoop
-gofuckyourself ĞéÄâ»ú ÓÃ»§Ãû   11!!aa
-192.168.0.6 ĞéÄâ»úip
-TS130\Administrator  ÓÃ»§Ãû
-ts130@adminU  ÃÜÂë
+gofuckyourself è™šæ‹Ÿæœº ç”¨æˆ·å   11!!aa
+192.168.0.6 è™šæ‹Ÿæœºip
+TS130\Administrator  ç”¨æˆ·å
+ts130@adminU  å¯†ç 
 16693  kibana
 23189  5602  0.6
 23394  5601  0.10
@@ -19,49 +19,49 @@ svn xiangchao  XiangChao123
 
 localhost     192.168.3.78
 
-https://ser.yu.lan-bridge.com/svn/ĞÅÏ¢¼¼Êõ²¿Ô±¹¤/xiangchao  svnÏîÄ¿µØÖ·
-https://ser.yu.lan-bridge.com/!/#%E5%90%84%E9%83%A8%E9%97%A8%E5%91%A8%E4%BE%8B%E4%BC%9A/view/head/%E5%A4%9A%E5%AA%92%E4%BD%93%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%84/2018%E5%B0%8F%E7%BB%84%E5%91%A8%E4%BE%8B%E4%BC%9A%E5%91%A8%E6%8A%A5/20180913   ÖÜ±¨µØÖ·
-https://ser.yu.lan-bridge.com/!/#Spider  ÅÀ³æÏîÄ¿Ìá½»µØÖ·
-svn ÓÃ»§Ãû xiangchao ÃÜÂë xiangchao111
+https://ser.yu.lan-bridge.com/svn/ä¿¡æ¯æŠ€æœ¯éƒ¨å‘˜å·¥/xiangchao  svné¡¹ç›®åœ°å€
+https://ser.yu.lan-bridge.com/!/#%E5%90%84%E9%83%A8%E9%97%A8%E5%91%A8%E4%BE%8B%E4%BC%9A/view/head/%E5%A4%9A%E5%AA%92%E4%BD%93%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%84/2018%E5%B0%8F%E7%BB%84%E5%91%A8%E4%BE%8B%E4%BC%9A%E5%91%A8%E6%8A%A5/20180913   å‘¨æŠ¥åœ°å€
+https://ser.yu.lan-bridge.com/!/#Spider  çˆ¬è™«é¡¹ç›®æäº¤åœ°å€
+svn ç”¨æˆ·å xiangchao å¯†ç  xiangchao111
 
-kibana ÅäÖÃ  ÅäÊÎhost.name ²ÅÄÜÁ¬ÉÏ
-mysql ÂÒÂëÎÊÌâ  ĞŞ¸Ämy.ini utf8
-ALTER TABLE `domain` ADD unique(`specialty_id`); Ìí¼ÓÎ¨Ò»½¨
-SHOW FULL COLUMNS FROM  ±í ²é¿´ËùÓĞÁĞĞÅÏ¢
-show variables like 'character%'; ²é¿´±àÂëmysql
-show status like 'Threads%';  mysql ²é¿´Á¬½ÓÊı
+kibana é…ç½®  é…é¥°host.name æ‰èƒ½è¿ä¸Š
+mysql ä¹±ç é—®é¢˜  ä¿®æ”¹my.ini utf8
+ALTER TABLE `domain` ADD unique(`specialty_id`); æ·»åŠ å”¯ä¸€å»º
+SHOW FULL COLUMNS FROM  è¡¨ æŸ¥çœ‹æ‰€æœ‰åˆ—ä¿¡æ¯
+show variables like 'character%'; æŸ¥çœ‹ç¼–ç mysql
+show status like 'Threads%';  mysql æŸ¥çœ‹è¿æ¥æ•°
 
 
-f = open("out.html","w",encoding='utf-8')  ÎÄ¼şÂÒÂëÎÊÌâ
+f = open("out.html","w",encoding='utf-8')  æ–‡ä»¶ä¹±ç é—®é¢˜
     for line in open("keywords"):
         start_urls.append(base_URL + line.strip().decode('gbk').encode('utf-8') + offset_start + end_URL)
 
-python ½ûÓÃstr×ö±äÁ¿
-svn pycharm»·¾³ÎÊÌâ  ×°svnÑ¡ÔñÃüÁîĞĞ ÖØÆô¼ÆËã»ú  ĞÂ½¨ÏîÄ¿  ÅäÖÃ»·¾³exe
-ÀÛÁË¾ÍĞİÏ¢¹ş£¬±ğÏë¶àÁË so easy   ×¨ĞÄ£¬Ï°¹ß£¬ÏíÊÜ  ¹ıÁË¾ÍºÃÁË  
- ÔÚPythonÖĞ£¬None¡¢¿ÕÁĞ±í[]¡¢¿Õ×Öµä{}¡¢¿ÕÔª×é()¡¢0µÈÒ»ÏµÁĞ´ú±í¿ÕºÍÎŞµÄ¶ÔÏó»á±»×ª»»³ÉFalse¡£³ı´ËÖ®ÍâµÄÆäËü¶ÔÏó¶¼»á±»×ª»¯³ÉTrue¡£
+python ç¦ç”¨stråšå˜é‡
+svn pycharmç¯å¢ƒé—®é¢˜  è£…svné€‰æ‹©å‘½ä»¤è¡Œ é‡å¯è®¡ç®—æœº  æ–°å»ºé¡¹ç›®  é…ç½®ç¯å¢ƒexe
+ç´¯äº†å°±ä¼‘æ¯å“ˆï¼Œåˆ«æƒ³å¤šäº† so easy   ä¸“å¿ƒï¼Œä¹ æƒ¯ï¼Œäº«å—  è¿‡äº†å°±å¥½äº†  
+ åœ¨Pythonä¸­ï¼ŒNoneã€ç©ºåˆ—è¡¨[]ã€ç©ºå­—å…¸{}ã€ç©ºå…ƒç»„()ã€0ç­‰ä¸€ç³»åˆ—ä»£è¡¨ç©ºå’Œæ— çš„å¯¹è±¡ä¼šè¢«è½¬æ¢æˆFalseã€‚é™¤æ­¤ä¹‹å¤–çš„å…¶å®ƒå¯¹è±¡éƒ½ä¼šè¢«è½¬åŒ–æˆTrueã€‚
 
-maven ²é¿´ÒÀÀµÊ÷  mvn dependency:tree -Dverbose > tree.txt
+maven æŸ¥çœ‹ä¾èµ–æ ‘  mvn dependency:tree -Dverbose > tree.txt
 
-½â¾ö¶àÏß³ÌÅÀÈ¡Êı¾İ      
+è§£å†³å¤šçº¿ç¨‹çˆ¬å–æ•°æ®      
 scrapy runspider spider_name.py
 POST en-us/data/_delete_by_query
 {
   "query": {
     "term": {
-      "sub_domain": 77              esÅúÁ¿É¾³ı
+      "sub_domain": 77              esæ‰¹é‡åˆ é™¤
     }
   }
 }
-python u ¿ªÍ· ±íÊ¾unicode
-git merge   ĞÂ½¨·ÖÖ§ ĞŞ¸ÄÌá½»  À­È¡´úÂë  À­È¡µ½µ±Ç°·ÖÖ§   Ìá½»
+python u å¼€å¤´ è¡¨ç¤ºunicode
+git merge   æ–°å»ºåˆ†æ”¯ ä¿®æ”¹æäº¤  æ‹‰å–ä»£ç   æ‹‰å–åˆ°å½“å‰åˆ†æ”¯   æäº¤
   <repositories>
         <repository>
             <id>alimaven</id>
             <url>http://maven.aliyun.com/nexus/content/groups/public</url>
         </repository>
     </repositories>
-elasticsearchÉèÖÃ×î´ó·µ»ØÊıÁ¿ 
+elasticsearchè®¾ç½®æœ€å¤§è¿”å›æ•°é‡ 
 PUT en-us/_settings 
   
 {
@@ -69,38 +69,41 @@ PUT en-us/_settings
     "max_result_window":10000
   }
 }
-netstat -nao | findstr 8080 ²é¿´windows½ø³Ì¶Ë¿Ú
-taskkill /pid 9612 -t -f É±ËÀ½ø³Ì
+netstat -nao | findstr 8080 æŸ¥çœ‹windowsè¿›ç¨‹ç«¯å£
+taskkill /pid 9612 -t -f æ€æ­»è¿›ç¨‹
 
-https://blog.csdn.net/qq_35246620/article/details/80522720   IDEA¼¤»î·½·¨
-https://blog.csdn.net/w1070216393/article/details/79778415   editplus¼¤»î·½·¨
+https://blog.csdn.net/qq_35246620/article/details/80522720   IDEAæ¿€æ´»æ–¹æ³•
+https://blog.csdn.net/w1070216393/article/details/79778415   editplusæ¿€æ´»æ–¹æ³•
 
-https://www.cnblogs.com/zongfa/p/7808807.html  redis ²Ù×÷
-redis-cli.exe -h 192.168.0.10 -p 6379 redisÔ¶³ÌÁ¬½Ó
-Êı¾İ¶ÔÏó£ºxxxDO£¬xxx¼´ÎªÊı¾İ±íÃû¡£ 
-2£© Êı¾İ´«Êä¶ÔÏó£ºxxxDTO£¬xxxÎªÒµÎñÁìÓòÏà¹ØµÄÃû³Æ¡£
- 3£© Õ¹Ê¾¶ÔÏó£ºxxxVO£¬xxxÒ»°ãÎªÍøÒ³Ãû³Æ¡£ 
-4£© POJOÊÇDO/DTO/BO/VOµÄÍ³³Æ£¬½ûÖ¹ÃüÃû³ÉxxxPOJO¡£
+JetBrains IDE Support         chromeæ’ä»¶  jsåœ¨ideaè°ƒè¯•  æ’ä»¶é€šè¿‡ä¿®æ”¹crxåç¼€ä¸ºzip æ‹–å…¥chromeæ‰©å±•ç¨‹åº
+octotreeæ’ä»¶   ä¸ºgithubæä¾›æ ‘å½¢ç»“æ„ä»£ç   
 
-ÉÌ»á±ê×¼svnÏîÄ¿ºó¶ËµØÖ·
-ÄÚÍøµØÖ· https://USER1341.vdesktop.huawei.com:9996/svn/knowledge
-ÍâÍøµØÖ· https://182.150.56.46:9996/svn/Knowledge   (KĞ¡Ğ´)
+https://www.cnblogs.com/zongfa/p/7808807.html  redis æ“ä½œ
+redis-cli.exe -h 192.168.0.10 -p 6379 redisè¿œç¨‹è¿æ¥
+æ•°æ®å¯¹è±¡ï¼šxxxDOï¼Œxxxå³ä¸ºæ•°æ®è¡¨åã€‚ 
+2ï¼‰ æ•°æ®ä¼ è¾“å¯¹è±¡ï¼šxxxDTOï¼Œxxxä¸ºä¸šåŠ¡é¢†åŸŸç›¸å…³çš„åç§°ã€‚
+ 3ï¼‰ å±•ç¤ºå¯¹è±¡ï¼šxxxVOï¼Œxxxä¸€èˆ¬ä¸ºç½‘é¡µåç§°ã€‚ 
+4ï¼‰ POJOæ˜¯DO/DTO/BO/VOçš„ç»Ÿç§°ï¼Œç¦æ­¢å‘½åæˆxxxPOJOã€‚
 
-http://192.168.3.46:1211/knowledge/statistic Ç°¶ÎÒ³Ãæ
-192.168.3.46:8080   Ç°¶ËÒ³Ãæ
+å•†ä¼šæ ‡å‡†svné¡¹ç›®åç«¯åœ°å€
+å†…ç½‘åœ°å€ https://USER1341.vdesktop.huawei.com:9996/svn/knowledge
+å¤–ç½‘åœ°å€ https://182.150.56.46:9996/svn/Knowledge   (Kå°å†™)
 
-ÍâÍøÉÌ»ámysql 182.150.56.46:3306 root 11!!aa
+http://192.168.3.46:1211/knowledge/statistic å‰æ®µé¡µé¢
+192.168.3.46:8080   å‰ç«¯é¡µé¢
 
-ÄÚÍøÉÌ»ámysql 192.168.3.139  root 11!!aa
+å¤–ç½‘å•†ä¼šmysql 182.150.56.46:3306 root 11!!aa
+
+å†…ç½‘å•†ä¼šmysql 192.168.3.139  root 11!!aa
 
 
 
-svn 11!!aa mysql svn·şÎñÆ÷µØÖ·	
+svn 11!!aa mysql svnæœåŠ¡å™¨åœ°å€	
 
-excel  ÓÃ3.8µÄ°ü ³öÏÖÂÒÂë
+excel  ç”¨3.8çš„åŒ… å‡ºç°ä¹±ç 
 
-230   ÖĞÎÄ 
-240   Ó¢ÎÄ
-250   ÖĞÎÄ
-260   ÖĞÎÄ
-270   Ó¢ÎÄ
+230   ä¸­æ–‡ 
+240   è‹±æ–‡
+250   ä¸­æ–‡
+260   ä¸­æ–‡
+270   è‹±æ–‡
