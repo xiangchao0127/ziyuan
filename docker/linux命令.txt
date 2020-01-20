@@ -8,4 +8,7 @@ service mysql stop 停止服务
 locate之前要updatedb用root权限
 mysql 连接不上  grant all privileges on *.* to ‘root’@’%’ identified by ‘上边的密码’;flush privileges; 拿root用密码登录 重启
 cat /var/log/messages | grep -i 'Out of memory'  查看系统日志    -i 忽略大小写
+docker  pip  换源 慢的话 
+https://www.cnblogs.com/telwanggs/p/10857182.html   docker kafka安装
+https://blog.csdn.net/zhangcongyi420/article/details/88674491   docker kafka安装  + springboot +kafka使用
 
