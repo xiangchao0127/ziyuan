@@ -113,3 +113,6 @@ excel  用3.8的包 出现乱码
 3、新增 pip.ini 配置文件内容 
 [global]
 index-url = https://mirrors.aliyun.com/pypi/simple/
+
+
+https://www.52pojie.cn/thread-1062067-1-1.html   idea 2019.2 破解  配置jar包的中括号不要
