@@ -1,0 +1,19 @@
+C# 注意事项
+委托（方法的代理） 事件（集合方法的代理）  主要处理回调
+https://www.52pojie.cn/thread-1062067-1-1.html idea 2019 激活
+
+
+
+
+
+
+
+
+
+
+
+
+vs企业版 账号密码 2038802094@qq.com XiangChao123    
+installer project 打包插件  https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.MicrosoftVisualStudio2017InstallerProjects  双击安装
+在项目解决方案添加项目 setup exe 项目
+打包细节  application folder 添加文件 \项目\bin\x64\Debug全选  生成
