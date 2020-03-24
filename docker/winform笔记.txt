@@ -1,6 +1,7 @@
-C# ×¢ÒâÊÂÏî
-Î¯ÍĞ£¨·½·¨µÄ´úÀí£© ÊÂ¼ş£¨¼¯ºÏ·½·¨µÄ´úÀí£©  Ö÷Òª´¦Àí»Øµ÷
-https://www.52pojie.cn/thread-1062067-1-1.html idea 2019 ¼¤»î
+C# æ³¨æ„äº‹é¡¹
+å§”æ‰˜ï¼ˆæ–¹æ³•çš„ä»£ç†ï¼‰ äº‹ä»¶ï¼ˆé›†åˆæ–¹æ³•çš„ä»£ç†ï¼‰  ä¸»è¦å¤„ç†å›è°ƒ
+https://www.52pojie.cn/thread-1062067-1-1.html idea 2019 æ¿€æ´»
+https://blog.csdn.net/dog123xuheyin/article/details/85008071 winformæ‰“åŒ…åšå®¢
 
 
 
@@ -12,8 +13,7 @@ https://www.52pojie.cn/thread-1062067-1-1.html idea 2019 ¼¤»î
 
 
 
-
-vsÆóÒµ°æ ÕËºÅÃÜÂë 2038802094@qq.com XiangChao123    
-installer project ´ò°ü²å¼ş  https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.MicrosoftVisualStudio2017InstallerProjects  Ë«»÷°²×°
-ÔÚÏîÄ¿½â¾ö·½°¸Ìí¼ÓÏîÄ¿ setup exe ÏîÄ¿
-´ò°üÏ¸½Ú  application folder Ìí¼ÓÎÄ¼ş \ÏîÄ¿\bin\x64\DebugÈ«Ñ¡  Éú³É
+vsä¼ä¸šç‰ˆ è´¦å·å¯†ç  2038802094@qq.com XiangChao123    
+installer project æ‰“åŒ…æ’ä»¶  https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.MicrosoftVisualStudio2017InstallerProjects  åŒå‡»å®‰è£…
+åœ¨é¡¹ç›®è§£å†³æ–¹æ¡ˆæ·»åŠ é¡¹ç›® setup exe é¡¹ç›®
+æ‰“åŒ…ç»†èŠ‚  application folder æ·»åŠ æ–‡ä»¶ \é¡¹ç›®\bin\x64\Debugå…¨é€‰  ç”Ÿæˆ

@@ -46,3 +46,13 @@ cd /app
 java -jar pangu-file-1.0-SNAPSHOT.jar ->& log.txt
 #centos7 docker pull centos:7
 docker run -tid --name centos7 -v /sys/fs/cgroup:/sys/fs/cgroup:ro  centos:7
+
+java windows bat 启动
+@echo off
+start  javaw -jar ak_initiator-1.0-SNAPSHOT.jar
+
+@echo off
+start  javaw -jar ak_speechrecognition_single-1.0-SNAPSHOT.jar
+
+@echo off
+start  javaw -jar websocket_client-0.0.1-SNAPSHOT.jar
