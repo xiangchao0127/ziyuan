@@ -25,5 +25,8 @@ tail -f 动态看文件
 java程序在初始化时区的时候，如果没有指定JVM参数-Duser.timezone=GMT+08,java程序就会默认读取操作系统的时区来初始化java程序的时区。
 
 
+http://192.168.2.203:5791/auth/oauth/token?client_id=1&client_secret=server&grant_type=password&username=shuyi&password=1
+
+
 
 
