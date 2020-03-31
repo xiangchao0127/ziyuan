@@ -1,0 +1,344 @@
+{
+	"info": {
+		"_postman_id": "0786e9ae-7256-495e-8fef-3ddc47aa08ba",
+		"name": "language",
+		"description": "语言ES库",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "创建mapping",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/ch-en",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"ch-en"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "删除索引",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "97d866e8-24dd-4a36-9fbc-47301221559a",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{host}}/language",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"language"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "添加数据",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"domain\":\"28\",\n\t\"sub_domain\":\"32\",\n\t\"chinese\":\"我爱语文!!!!\",\n\t\"english\":\"I love Chinese!\"\n\n}"
+				},
+				"url": {
+					"raw": "192.168.2.247:9200/en-us/data/",
+					"host": [
+						"192",
+						"168",
+						"2",
+						"247"
+					],
+					"port": "9200",
+					"path": [
+						"en-us",
+						"data",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "根据id跟新数据(注意加doc)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t                \n                    \"doc\":\n                    { \"domain\": \"教育\",\n                    \"sub_domain\": \"语文\",\n                    \"chinese\": \"我爱语文！！！\",\n                    \"english\": \"I love Chinese!!!\" }\n}"
+				},
+				"url": {
+					"raw": "{{host}}/language/data/Saq05mUBNSrz7N5D-Uy3/_update?pretty",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"language",
+						"data",
+						"Saq05mUBNSrz7N5D-Uy3",
+						"_update"
+					],
+					"query": [
+						{
+							"key": "pretty",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "查询所有数据",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/ch-en/data/_search",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"ch-en",
+						"data",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "删除数据",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "192.168.2.247:9200/en-us/data/Em9OPW0BYaz69ej8GsuO",
+					"host": [
+						"192",
+						"168",
+						"2",
+						"247"
+					],
+					"port": "9200",
+					"path": [
+						"en-us",
+						"data",
+						"Em9OPW0BYaz69ej8GsuO"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "根据条件查询",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\r\n\r\n  \"query\": {\r\n\r\n   \"match\":{\r\n   \t\"subd_domain\":73\r\n   }\r\n\r\n\r\n\r\n  \r\n\r\n    \r\n\r\n  }\r\n\r\n}"
+				},
+				"url": {
+					"raw": "{{host}}/ch-en/data/_search",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"ch-en",
+						"data",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "动态修改es配置",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"action.auto_create_index\": false}\n\n"
+				},
+				"url": {
+					"raw": "192.168.2.246:9200/_settings",
+					"host": [
+						"192",
+						"168",
+						"2",
+						"246"
+					],
+					"port": "9200",
+					"path": [
+						"_settings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "统计",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n  {\r\n  \t\"size\":5,\r\n  \"aggs\": {\r\n    \"uniq_attr\": {\r\n      \"cardinality\": {\r\n        \"field\": \"sub_domain\"\r\n      }\r\n    }\r\n  }\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{host}}/language/data/_search",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"language",
+						"data",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ik分词",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\n{\n\t \"analyzer\": \"ik_max_word\",\n     \"text\": \"正则匹配\"\n}\n"
+				},
+				"url": {
+					"raw": "192.168.2.247:9200/_analyze?pretty",
+					"host": [
+						"192",
+						"168",
+						"2",
+						"247"
+					],
+					"port": "9200",
+					"path": [
+						"_analyze"
+					],
+					"query": [
+						{
+							"key": "pretty",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "根据条件批量删除数据",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "security_session_verify=106ded197646b60001b55e1f8d284cfb; JSESSIONID=6FB925A336FCB8441526C29BB4BD5AEB; Hm_lvt_48887d49c6388cbb4722a757b51bf314=1537421065; Hm_lpvt_48887d49c6388cbb4722a757b51bf314=1537421090",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n\r\n  \"query\": {\r\n\r\n    \"bool\": {\r\n\r\n      \"must\":[\r\n\r\n\r\n{\"term\": {\r\n            \"sub_domain\": 111\r\n        }}\r\n\r\n\r\n\r\n  ]\r\n\r\n    }\r\n\r\n  }\r\n\r\n}"
+				},
+				"url": {
+					"raw": "192.168.0.10:9200/en-us/data/_delete_by_query",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"10"
+					],
+					"port": "9200",
+					"path": [
+						"en-us",
+						"data",
+						"_delete_by_query"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
